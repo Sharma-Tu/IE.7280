@@ -43,6 +43,8 @@ split_train_validate<- function(r) {
 
 SSECV <- data.frame(SSE_8var = double(), SSE_2var = double())
 for (i in 1:10)  SSECV[i,] <- split_train_validate(i)
-rm(i)
+
+#Free Memory
+rm(i, cv_sets, CV_K)
 
 colSums(SSECV)
